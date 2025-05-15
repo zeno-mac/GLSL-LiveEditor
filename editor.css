@@ -1,3 +1,36 @@
 body {
+    background-color: #1A1A1A;
+    color: #E4E4E4;
+}
+
+#header{
+    background-color: #B39CD0;
+    color: #1A1A1A;
+    font-size: 50px;
+    width: 96%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.container{
+    display: flex;
+}
+
+#editor{
     background-color: #2C2C2C;
+    color: #E4E4E4;
+    width: 46%;
+    height: 500px;
+    font-size: 20px;
+    margin-left:2%;
+    margin-top: 10px;
+}
+
+#image{
+    width: 46%;
+    margin-top: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
 }
