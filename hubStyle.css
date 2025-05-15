@@ -1,7 +1,6 @@
 body {
   background-color: #FBF3B9; 
   color: #000000;
-  margin : #000000;
   text-align: center;
 }
 #header {
@@ -27,7 +26,6 @@ body {
 #footer{
 border: 1px solid #000000;
 margin-top: 10px;
-padding: 0%;
 }
 #sidebar {
   transition: font-size 0.3s linear;

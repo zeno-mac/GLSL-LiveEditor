@@ -10,7 +10,7 @@ function decrease() {
   sidebar.style.fontSize = (currentSize - 2) + "px"; // diminuisce di 2px
 }
 
-/*document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("input");
 
   input.addEventListener("keydown", function(event) {
@@ -33,7 +33,7 @@ function decrease() {
       if (i >= text.length) clearInterval(typing);
     }, 30);
   }
-});*/
+});
 
 
 
