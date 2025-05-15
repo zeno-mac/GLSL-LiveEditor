@@ -1,0 +1,32 @@
+body {
+  background-color: #FBF3B9; 
+  color: #000000;
+  margin : #000000;
+  text-align: center;
+}
+#header {
+  background-color: #B7B1F2;
+  width : 100%;
+  border: 2px solid #000000;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#main {
+  display: flex;
+}
+#links{
+  width: 50%;
+  border: 1px solid #000000;
+  
+}
+#sidebar{
+  width: 50%;
+  border: 1px solid #000000;
+}
+#footer{
+border: 1px solid #000000;
+margin-top: 10px;
+padding: 0%;
+}
+
