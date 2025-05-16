@@ -24,13 +24,24 @@ body {
     width: 46%;
     height: 500px;
     font-size: 20px;
-    margin-left:2%;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 10px;
+    resize: none;
+}
+
+#shaderCanvas{
+
+    width: 46%;
+    height: 500px;
+    margin-left:auto;
+    margin-right: auto;
     margin-top: 10px;
 }
 
-#image{
-    width: 46%;
-    margin-top: 10px;
-    margin-left: 2%;
-    margin-right: 2%;
+#Compile{
+    margin-left:2%;
+}
+#text{
+    margin-left:2%;
 }

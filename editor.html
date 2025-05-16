@@ -6,13 +6,17 @@
 
 <body>
   <div id="header">GLSL Shader Live Editor</div>
-  <div class="container">
-    
+  <main class="container">
+
     <textarea id = "editor"></textarea>
 
-    <img src="ShaderPlaceholder.png" id="image">
-  </div>
-
+    <canvas id = "shaderCanvas"></canvas>
+  </main>
+  <button type="button"id = "Compile" onclick="fillCanvas()">Compile</button>
+  
+  <button type="button"id = "AddLive" onclick="removeLive()">Remove live compiling</button>
+  <button type="button"id = "RemoveLive" onclick="addLive()">Add live compiling</button>
+  <p id="text"></p>
 </body>
 
 </html>
