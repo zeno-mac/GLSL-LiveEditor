@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <head>
   <link rel="stylesheet" href="editor.css">
-  <script src="editor.js"></script>
+  <script type="module" src="editor.js"></script>
+  <script type="module" src = "renderer.js"></script>
   <title>GLSL Live Editor</title>
 </head>
 
@@ -13,9 +14,9 @@
 
     <canvas id = "shaderCanvas"></canvas>
   </main>
-  <button type="button"id = "Compile" onclick="sendText()">Compile</button>
-  <button type="button"id = "AddLive" onclick="removeLiveCompiling()">Remove live compiling</button>
-  <button type="button"id = "RemoveLive" onclick="addLiveCompiling()">Add live compiling</button>
+  <button type="button"id = "Compile">Compile</button>
+  <button type="button"id = "AddLive">Remove live compiling</button>
+  <button type="button"id = "RemoveLive">Add live compiling</button>
 </body>
 
 </html>
