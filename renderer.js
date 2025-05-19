@@ -1,7 +1,6 @@
 
 let animationFrameId = null;
 
-
 function startShader(vertexShaderSource, fragmentShaderSource){
   const canvas = document.getElementById("shaderCanvas");
   const gl = canvas.getContext("webgl");
@@ -60,7 +59,6 @@ function startShader(vertexShaderSource, fragmentShaderSource){
   render();
 }
 
-
 function compileShader(gl, source, type) {
   const shader = gl.createShader(type);
   gl.shaderSource(shader, source);
@@ -87,7 +85,5 @@ function createShaderProgram(gl, vSource, fSource) {
   }
   return program;
 }
-
-
 
 export {startShader};

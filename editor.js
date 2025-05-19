@@ -30,10 +30,8 @@ function removeLiveCompiling(){
 }
 
 function addLiveCompiling(){
-    input.removeEventListener("input", debouncedSendShader);
     input.addEventListener("input", debouncedSendShader);
 }
-
 
 function sendShader(){
   const fragText = input.value;
