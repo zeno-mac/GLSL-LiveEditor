@@ -1,7 +1,24 @@
 
 let animationFrameId = null;
 
-function startShader(vertexShaderSource, fragmentShaderSource){
+
+
+let mouse = [0., 0.];
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("shaderCanvas").addEventListener("mousemove", (e) => {
+    let canvas = document.getElementById("shaderCanvas");
+    let rect = canvas.getBoundingClientRect();
+    let x = (e.clientX - rect.left) * (canvas.width / rect.width);
+    let y = (e.clientY - rect.top) * (canvas.height / rect.height);
+    mouse = [x, canvas.height - y]; // inverti Y perché WebGL ha Y che parte dal basso
+
+  }
+  );
+});
+
+function startShader(vertexShaderSource, fragmentShaderSource) {
   const canvas = document.getElementById("shaderCanvas");
   const gl = canvas.getContext("webgl");
   if (!gl) {
@@ -19,11 +36,11 @@ function startShader(vertexShaderSource, fragmentShaderSource){
 
   const positions = new Float32Array([
     -1, -1,
-     1, -1,
-    -1,  1,
-    -1,  1,
-     1, -1,
-     1,  1,
+    1, -1,
+    -1, 1,
+    -1, 1,
+    1, -1,
+    1, 1,
   ]);
 
   const buffer = gl.createBuffer();
@@ -36,6 +53,7 @@ function startShader(vertexShaderSource, fragmentShaderSource){
 
   const timeLoc = gl.getUniformLocation(program, "uTime");
   const resLoc = gl.getUniformLocation(program, "uResolution");
+  const mouseLoc = gl.getUniformLocation(program, "uMouse");
 
   gl.useProgram(program);
   gl.uniform2f(resLoc, canvas.width, canvas.height);
@@ -44,7 +62,7 @@ function startShader(vertexShaderSource, fragmentShaderSource){
     const now = performance.now() / 1000;
     gl.useProgram(program);
     gl.uniform1f(timeLoc, now);
-
+    gl.uniform2f(mouseLoc, mouse[0], mouse[1]);
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.drawArrays(gl.TRIANGLES, 0, 6);
@@ -86,4 +104,6 @@ function createShaderProgram(gl, vSource, fSource) {
   return program;
 }
 
-export {startShader};
+export { startShader };
+
+
