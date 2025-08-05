@@ -19,12 +19,8 @@
 
 ## Usage
 
-1. Start a local HTTP server (e.g. with Python):
-   ```bash
-   python -m http.server 8000
-   ```
-2. Open `http://localhost:8000/editor.html` in a browser.
-3. Write GLSL in the editor and see the result instantly.
+Open the editor directly in your browser:  
+[https://zeno-mac.github.io/GLSL-LiveEditor/](https://zeno-mac.github.io/GLSL-LiveEditor/)
 
 ## License
 
