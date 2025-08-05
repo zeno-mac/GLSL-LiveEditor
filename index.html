@@ -8,13 +8,22 @@
 
 <body>
   <div id="header">GLSL Shader Live Editor</div>
+
   <main class="container">
     <textarea id = "editor"></textarea>
     <canvas id = "shaderCanvas"></canvas>
   </main>
-  <button type="button" id="Compile">Compile</button>
-  <button type="button" id="AddLive">Remove live compiling</button>
-  <button type="button" id = "RemoveLive">Add live compiling</button>
+
+  <div class="button-row">
+    <button type="button" id="Compile">Compile</button>
+    <button type="button" id="AddLive">Remove live compiling</button>
+    <button type="button" id="RemoveLive">Add live compiling</button>
+  </div>
+
+  <div class="button-row">
+    <button type="button" id="SetStandardShader">Set Standard Shader</button>
+    <button type="button" id="SetMouseShader">Set Mouse Shader</button>
+  </div>
 </body>
 
 </html>
