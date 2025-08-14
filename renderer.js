@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function sendError(text){
   errorBox.innerHTML=text;
-  errorBox.style.display = "inline";
+  errorBox.style.display = "block";
 }
 function removeError(){
  errorBox.innerHTML= "";
