@@ -6,17 +6,17 @@ let animationFrameId = null;
 let mouse = [0., 0.];
 let canvas;
 
-
 document.addEventListener("DOMContentLoaded", () => {
+  canvas = document.getElementById("shaderCanvas");
+  let rect = canvas.getBoundingClientRect();
+  canvas.height = rect.height;
+  canvas.width = rect.width;
   window.addEventListener("resize", (e)=>{
-    let canvas = document.getElementById("shaderCanvas");
     let rect = canvas.getBoundingClientRect();
     canvas.height = rect.height;
     canvas.width = rect.width;
-    startShader();
   })
-  document.getElementById("shaderCanvas").addEventListener("mousemove", (e) => {
-    let canvas = document.getElementById("shaderCanvas");
+  canvas.addEventListener("mousemove", (e) => {
     let rect = canvas.getBoundingClientRect();
     let x = (e.clientX - rect.left);
     let y = (e.clientY - rect.top);
@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function startShader(vertexShaderSource, fragmentShaderSource) {
-  const canvas = document.getElementById("shaderCanvas");
   const gl = canvas.getContext("webgl");
   if (!gl) {
     alert("WebGL not supported");
@@ -63,10 +62,6 @@ function startShader(vertexShaderSource, fragmentShaderSource) {
   const resLoc = gl.getUniformLocation(program, "uResolution");
   const mouseLoc = gl.getUniformLocation(program, "uMouse");
   gl.useProgram(program);
-
-  const rect = canvas.getBoundingClientRect();
-  canvas.width = rect.width;
-  canvas.height = rect.height;
   gl.uniform2f(resLoc, canvas.width, canvas.height);
 
   function render() {
