@@ -4,14 +4,22 @@ let animationFrameId = null;
 
 
 let mouse = [0., 0.];
+let canvas;
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  window.addEventListener("resize", (e)=>{
+    let canvas = document.getElementById("shaderCanvas");
+    let rect = canvas.getBoundingClientRect();
+    canvas.height = rect.height;
+    canvas.width = rect.width;
+    startShader();
+  })
   document.getElementById("shaderCanvas").addEventListener("mousemove", (e) => {
     let canvas = document.getElementById("shaderCanvas");
     let rect = canvas.getBoundingClientRect();
-    let x = (e.clientX - rect.left) * (canvas.width / rect.width);
-    let y = (e.clientY - rect.top) * (canvas.height / rect.height);
+    let x = (e.clientX - rect.left);
+    let y = (e.clientY - rect.top);
     mouse = [x, canvas.height - y]; // inverti Y perché WebGL ha Y che parte dal basso
 
   }
@@ -54,8 +62,11 @@ function startShader(vertexShaderSource, fragmentShaderSource) {
   const timeLoc = gl.getUniformLocation(program, "uTime");
   const resLoc = gl.getUniformLocation(program, "uResolution");
   const mouseLoc = gl.getUniformLocation(program, "uMouse");
-
   gl.useProgram(program);
+
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height;
   gl.uniform2f(resLoc, canvas.width, canvas.height);
 
   function render() {

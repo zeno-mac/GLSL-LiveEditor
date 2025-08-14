@@ -34,7 +34,7 @@ vec2 uv = gl_FragCoord.xy;
 
 float dist = distance(uv, uMouse);
 vec3 col = vec3(0.,0.,0.);    
-float radius = 30.0;
+float radius = 100.0;
 float relDist = 1.0 -dist/radius;
 
 if(dist <radius){
