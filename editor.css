@@ -113,3 +113,15 @@ button {
         max-width: 250px;
     }
 }
+
+.live-active {
+    border-color: #4CAF50 !important;
+}
+
+.live-inactive {
+    border-color: #FF6B6B !important;
+}
+
+#Compile{
+    border-color: #4CAF50;
+}

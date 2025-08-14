@@ -48,16 +48,15 @@ gl_FragColor = vec4(col, 1.0);
 
 const debouncedSendShader = debounce(sendShader, 300);
 let input;
-
+let liveCompiling = true;
 document.addEventListener("DOMContentLoaded", () => {
     input = document.getElementById("editor");
     input.value=standardFragmentShaderSource;
     input.addEventListener("input", debouncedSendShader);
     sendShader();
-    
     document.getElementById("Compile").addEventListener("click", sendShader);
-    document.getElementById("AddLive").addEventListener("click", removeLiveCompiling);
-    document.getElementById("RemoveLive").addEventListener("click", addLiveCompiling);
+    document.getElementById("ToggleLive").classList.add("live-active");
+    document.getElementById("ToggleLive").addEventListener("click", toggleLiveCompiling);
     document.getElementById("SetStandardShader").addEventListener("click", setStandardShader);
     document.getElementById("SetMouseShader").addEventListener("click", setMouseShader);
     document.getElementById("DownloadShader").addEventListener("click", downloadShader);
@@ -98,12 +97,19 @@ function setMouseShader(){
   sendShader();
 }
 
-function removeLiveCompiling(){
+function toggleLiveCompiling(){
+  let button = document.getElementById("ToggleLive");
+  if (liveCompiling){
     input.removeEventListener("input", debouncedSendShader);
-}
-
-function addLiveCompiling(){
+    button.classList.remove("live-active");
+    button.classList.add("live-inactive");
+    liveCompiling = false;
+  }else{
     input.addEventListener("input", debouncedSendShader);
+    button.classList.remove("live-inactive");
+    button.classList.add("live-active");
+    liveCompiling = true;
+  }
 }
 
 function sendShader(){
