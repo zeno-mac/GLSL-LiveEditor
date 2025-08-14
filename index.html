@@ -9,24 +9,31 @@
 <body>
   <div id="header">GLSL Shader Live Editor</div>
 
+  
+  
   <main class="container">
     <textarea id = "editor"></textarea>
     <canvas id = "shaderCanvas"></canvas>
   </main>
-
+  
   <div class="button-row">
     <button type="button" id="Compile">Compile</button>
     <button type="button" id="AddLive">Remove live compiling</button>
     <button type="button" id="RemoveLive">Add live compiling</button>
   </div>
-
+  
   <div class="button-row">
     <button type="button" id="SetStandardShader">Set Standard Shader</button>
     <button type="button" id="SetMouseShader">Set Mouse Shader</button>
   </div>
+  
   <div class="button-row">
     <button type="button" id="DownloadShader">Download Current Shader</button>
+    <button type="button" id="LoadShader">Load Current Shader
+    </button><input type="file" id="LoadedShaderFile" name="LoadedShaderFile" accept=".frag,.glsl,.txt,text/plain"/>
   </div>
+
+  
 </body>
 
 </html>

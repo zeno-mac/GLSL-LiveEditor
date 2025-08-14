@@ -61,7 +61,19 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("SetStandardShader").addEventListener("click", setStandardShader);
     document.getElementById("SetMouseShader").addEventListener("click", setMouseShader);
     document.getElementById("DownloadShader").addEventListener("click", downloadShader);
+    document.getElementById("LoadShader").addEventListener("click", loadShader);
 });
+
+function loadShader(){
+  const file = document.getElementById("LoadedShaderFile").files[0];
+  const reader = new FileReader();
+  reader.readAsText(file); 
+  
+  reader.onload = (e) => {
+    input.value = e.target.result;
+    sendShader();
+  };
+}
 
 function downloadShader(){
 const link = document.createElement("a");
