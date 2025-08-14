@@ -4,17 +4,19 @@
 
 ## Features
 
-- Live fragment shader editing
-- Basic vertex shader setup
+- Live fragment shader editing with auto-compilation
 - Real-time WebGL rendering
 - Built-in uniforms: `uTime`, `uResolution`, `uMouse`
+- Load/save shader files (.frag, .glsl)
+- Tab indentation support
+- Dark mode interface
 
 ## Files
 
-- `editor.html` – main page with the UI and canvas  
-- `editor.js` – handles editor input and debounce  
+- `index.html` – main page with the UI and canvas  
+- `editor.js` – handles editor input, file operations, and UI  
 - `renderer.js` – compiles shaders, sets uniforms, renders  
-- `editor.css` – styling  
+- `editor.css` – dark mode styling  
 - `README.md` – this file  
 
 ## Usage
