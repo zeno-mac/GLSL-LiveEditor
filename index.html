@@ -8,29 +8,34 @@
 
 <body>
   <div id="header">GLSL Shader Live Editor</div>
-
-  
   
   <main class="container">
     <textarea id = "editor"></textarea>
     <canvas id = "shaderCanvas"></canvas>
   </main>
-  
-  <div class="button-row">
-    <button type="button" id="Compile">Compile</button>
-    <button type="button" id="AddLive">Remove live compiling</button>
-    <button type="button" id="RemoveLive">Add live compiling</button>
-  </div>
-  
-  <div class="button-row">
-    <button type="button" id="SetStandardShader">Set Standard Shader</button>
-    <button type="button" id="SetMouseShader">Set Mouse Shader</button>
-  </div>
-  
-  <div class="button-row">
-    <button type="button" id="DownloadShader">Download Current Shader</button>
-    <button type="button" id="LoadShader">Load Shader From File</button>
-    <input type="file" id="LoadedShaderFile" accept=".frag,.glsl,.txt,text/plain" style="display: none;"/>
+
+  <div class="toolbar">
+    <div class="controls">
+     <div class="button-row">
+       <button type="button" id="Compile">Compile</button>
+       <button type="button" id="AddLive">Remove live compiling</button>
+       <button type="button" id="RemoveLive">Add live compiling</button>
+     </div>
+     
+     <div class="button-row">
+       <button type="button" id="SetStandardShader">Set Standard Shader</button>
+       <button type="button" id="SetMouseShader">Set Mouse Shader</button>
+      </div>
+      
+      <div class="button-row">
+        <button type="button" id="DownloadShader">Download Current Shader</button>
+        <button type="button" id="LoadShader">Load Shader From File</button>
+        <input type="file" id="LoadedShaderFile" accept=".frag,.glsl,.txt,text/plain" style="display: none;"/>
+      </div>
+    </div>
+    <div class="error-container">
+     <div class="error-text" id="errorDisplay" style="display: none;">No error yet</div>
+    </div>
   </div>
 
   

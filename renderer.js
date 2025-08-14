@@ -5,8 +5,13 @@ let animationFrameId = null;
 
 let mouse = [0., 0.];
 let canvas;
+let errorBox;
 
 document.addEventListener("DOMContentLoaded", () => {
+  errorBox = document.getElementById("errorDisplay");
+  if(errorBox == null){
+    console.log("Error: no errorBox loaded");
+  }
   canvas = document.getElementById("shaderCanvas");
   let rect = canvas.getBoundingClientRect();
   canvas.height = rect.height;
@@ -20,12 +25,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let rect = canvas.getBoundingClientRect();
     let x = (e.clientX - rect.left);
     let y = (e.clientY - rect.top);
-    mouse = [x, canvas.height - y]; // inverti Y perché WebGL ha Y che parte dal basso
+    mouse = [x, canvas.height - y];
 
   }
   );
 });
 
+function sendError(text){
+  errorBox.innerHTML=text;
+  errorBox.style.display = "inline";
+}
+function removeError(){
+ errorBox.innerHTML= "";
+ errorBox.style.display = "none";
+}
 function startShader(vertexShaderSource, fragmentShaderSource) {
   const gl = canvas.getContext("webgl");
   if (!gl) {
@@ -90,7 +103,9 @@ function compileShader(gl, source, type) {
   if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
     const error = gl.getShaderInfoLog(shader);
     gl.deleteShader(shader);
-    throw new Error("Shader compile error: " + error);
+    sendError(error);
+  }else{
+    removeError();
   }
   return shader;
 }
