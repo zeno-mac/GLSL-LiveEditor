@@ -60,7 +60,18 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("RemoveLive").addEventListener("click", addLiveCompiling);
     document.getElementById("SetStandardShader").addEventListener("click", setStandardShader);
     document.getElementById("SetMouseShader").addEventListener("click", setMouseShader);
+    document.getElementById("DownloadShader").addEventListener("click", downloadShader);
 });
+
+function downloadShader(){
+const link = document.createElement("a");
+const content = input.value;
+const file = new Blob([content], { type: 'text/plain' });
+link.href = URL.createObjectURL(file);
+link.download = "shader.frag";
+link.click();
+URL.revokeObjectURL(link.href);
+}
 
 function setStandardShader(){
   input.value=standardFragmentShaderSource;
