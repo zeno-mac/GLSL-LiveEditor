@@ -61,7 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("SetStandardShader").addEventListener("click", setStandardShader);
     document.getElementById("SetMouseShader").addEventListener("click", setMouseShader);
     document.getElementById("DownloadShader").addEventListener("click", downloadShader);
-    document.getElementById("LoadShader").addEventListener("click", loadShader);
+    document.getElementById("LoadShader").addEventListener("click", () => {
+        document.getElementById("LoadedShaderFile").click();
+    });
+    document.getElementById("LoadedShaderFile").addEventListener("change", loadShader);
 });
 
 function loadShader(){
